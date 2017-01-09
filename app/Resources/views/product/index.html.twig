@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2 class="page-header">Latest Products</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>SKU</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products%}
+      <tr>
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td>{{product.category.name}}</td>
+        <td>{{product.sku}}</td>
+        <td>${{product.price}}</td>
+        <td>{{product.quantity}}</td>
+        <td>
+          <a href="/product/details/{{product.id}}" class="btn btn-small btn-success">View</a>
+          <a href="/product/edit/{{product.id}}" class="btn btn-small btn-default">Edit</a>
+          <a href="/product/delete/{{product.id}}" class="btn btn-small btn-danger">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,3 @@
+electronic_products:
+    type: rest
+    resource: AppBundle\Controller\ElectronicProductsController
